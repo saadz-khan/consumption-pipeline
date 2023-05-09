@@ -2,9 +2,17 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 import zipfile
 import subprocess
 import os
+import json
 
 os.environ['KAGGLE_USERNAME'] = "szk2001"
 os.environ['KAGGLE_KEY'] = "9f337014bd79f6769bd9ba27c5774e49"
+
+# Create kaggle.json file with the provided credentials
+kaggle_json = {"username": os.environ['KAGGLE_USERNAME'], "key": os.environ['KAGGLE_KEY']}
+os.makedirs(os.path.expanduser('~/.kaggle'), exist_ok=True)
+with open(os.path.expanduser('~/.kaggle/kaggle.json'), 'w') as f:
+    json.dump(kaggle_json, f)
+os.chmod(os.path.expanduser('~/.kaggle/kaggle.json'), 0o600)
 
 api = KaggleApi()
 api.authenticate()
