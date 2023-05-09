@@ -1,6 +1,4 @@
-import os
 import sys
-import subprocess
 
 import numpy as np
 import pandas as pd
@@ -26,27 +24,13 @@ import itertools
 from scipy.stats import randint
 from statsmodels.tsa.arima.model import ARIMA
 
-from kaggle.api.kaggle_api_extended import KaggleApi
-import zipfile
+try:
+    df = pd.read_csv('household_power_consumption.csv')
 
-os.environ['KAGGLE_USERNAME'] = "szk2001"
-os.environ['KAGGLE_KEY'] = "9f337014bd79f6769bd9ba27c5774e49"
-
-api = KaggleApi()
-api.authenticate()
-
-# download the dataset using the kaggle API
-api.dataset_download_files('uciml/electric-power-consumption-data-set', path=".")
-
-# open the ZIP file in read mode
-with zipfile.ZipFile('/content/electric-power-consumption-data-set.zip', 'r') as zip_ref:
-    # extract all files to the current working directory
-    zip_ref.extractall()
-
-df = pd.read_csv('household_power_consumption.txt', sep=';', 
-                 parse_dates={'dt' : ['Date', 'Time']}, infer_datetime_format=True, 
-                 low_memory=False, na_values=['nan','?'], index_col='dt')
-	
+except:
+    df = pd.read_csv('household_power_consumption.txt', sep=';', 
+		parse_dates={'dt' : ['Date', 'Time']}, infer_datetime_format=True, 
+		low_memory=False, na_values=['nan','?'], index_col='dt')
 
 def pre_process_data(df):
     droping_list_all=[]
