@@ -3,15 +3,6 @@ import zipfile
 import subprocess
 import os
 
-# create the .kaggle directory in the home directory
-os.makedirs(os.path.expanduser('~/.kaggle'), exist_ok=True)
-
-# copy the kaggle.json file to the .kaggle directory
-shutil.copy('kaggle.json', os.path.expanduser('~/.kaggle/kaggle.json'))
-
-# set the file permissions for the kaggle.json file
-os.chmod(os.path.expanduser('~/.kaggle/kaggle.json'), 0o600)
-
 os.environ['KAGGLE_USERNAME'] = "szk2001"
 os.environ['KAGGLE_KEY'] = "9f337014bd79f6769bd9ba27c5774e49"
 
