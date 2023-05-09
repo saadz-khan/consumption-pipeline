@@ -6,7 +6,7 @@ import os
 os.makedirs(os.path.expanduser('~/.kaggle'), exist_ok=True)
 
 # copy the kaggle.json file to the .kaggle directory
-process1 = subprocess.run(['cp', 'kaggle.json', os.path.expanduser('~/.kaggle/')])
+process1 = subprocess.run(['cp', '~/.kaggle/kaggle.json', os.path.expanduser('~/.kaggle/')])
 
 # set the file permissions for the kaggle.json file
 process2 = subprocess.run(['chmod', '600', os.path.expanduser('~/.kaggle/kaggle.json')])
