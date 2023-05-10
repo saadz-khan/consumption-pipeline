@@ -42,5 +42,7 @@ jobs:
           python train_evaluate.py
 
       - name: Run firebase_upload.py
+        env:
+          FORECAST_KEY: ${{ secrets.FORECAST_KEY }}
         run: |
           python firebase_upload.py
