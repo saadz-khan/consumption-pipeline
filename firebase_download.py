@@ -3,7 +3,7 @@ import json
 import csv
 import time
 
-forecast_url = "https://forecasting-1609-default-rtdb.asia-southeast1.firebasedatabase.app/consumption.json"
+forecast_url = "https://forecasting-1609-default-rtdb.asia-southeast1.firebasedatabase.app/.json"
 
 # Set the number of retries and delay between retries
 max_retries = 5
