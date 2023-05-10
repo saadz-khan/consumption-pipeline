@@ -28,10 +28,10 @@ jobs:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
         run: |
-          kaggle datasets download -d uciml/electric-power-consumption-data-set -p data
+          kaggle datasets download -d uciml/electric-power-consumption-data-set
         
       - name: Unzip dataset
-        run: unzip data/electric-power-consumption-data-set.zip -d data
+        run: unzip electric-power-consumption-data-set.zip
         
       # - name: Install data from firebase
       #   run: |
