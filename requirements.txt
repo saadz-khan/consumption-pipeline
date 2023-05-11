@@ -5,7 +5,6 @@ kaggle
 scikit-learn==1.2.2
 matplotlib==3.7.1
 seaborn==0.12.2
-Flask==2.1.1
 requests
 firebase-admin
 statsmodels==0.14.0
