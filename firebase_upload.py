@@ -27,8 +27,11 @@ except ValueError as e:
       'databaseURL': database_url
   })
   
+
 df = pd.read_csv('predictions.csv')
 
+# Assuming you have a DataFrame named consumptionData
+df.rename(columns={'index': 'DATE_TIME'}, inplace=True)
 df.to_json('predictions.json', orient='records')
 
 # Replace with the path to your JSON file
